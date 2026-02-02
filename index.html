@@ -2,32 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to Ashbourne's Vocabulary Game Hub</title>
+  <title>Welcome</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* Background video */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;   /* pushes it behind everything */
+    }
+
+    /* Optional dark overlay for readability */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    /* Page content */
+    .content {
+      position: relative;
+      z-index: 1;    /* above video + overlay */
+      color: white;
       text-align: center;
       padding-top: 60px;
-    }
-    a {
-      display: block;
-      margin: 15px 0;
-      font-size: 18px;
-      text-decoration: none;
-      color: #0066cc;
-    }
-    a:hover {
-      text-decoration: underline;
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
 <body>
-<video class="video-bg" autoplay muted loop playsinline>
-  <source src="bgvid.mp4" type="video/mp4">
-</video>
-  <h1>Welcome to Ashbourne's Vocabulary Game Hub</h1>
+
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="bgvid.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="content">
+     <h1>Welcome to Ashbourne's Vocabulary Game Hub</h1>
   <p>These games are organised by alphabet and level of difficulty ('Easy' or 'Hard')</p> 
 <p>Please choose where you’d like to go:</p>
+  </div>
 
   <a href="https://ashbournequiz.github.io/Vocabulary-Game/">'A' - EASY</a>
   <a href="https://ashbournequiz.github.io/Hangman-A/">'A' - HARD</a>
