@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome</title>
+  <title>Welcome to Ashbourne's Vocabulary Game Hub</title>
+
   <style>
     html, body {
       height: 100%;
@@ -17,25 +18,73 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;   /* pushes it behind everything */
+      z-index: -1;
     }
 
-    /* Optional dark overlay for readability */
+    /* Dark overlay for readability */
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
     /* Page content */
     .content {
       position: relative;
-      z-index: 1;    /* above video + overlay */
-      color: white;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
       text-align: center;
-      padding-top: 60px;
-      font-family: Helvetica, sans-serif;
+      font-family: Helvetica, Arial, sans-serif;
+      color: white;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 6px;
+    }
+
+    /* Section blocks */
+    .letter-group {
+      margin: 30px 0;
+    }
+
+    .letter-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    /* Links */
+    .links a {
+      display: inline-block;
+      margin: 6px 10px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Reduce motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .bg-video {
+        display: none;
+      }
+
+      body {
+        background: #000 url("fallback.jpg") center / cover no-repeat;
+      }
     }
   </style>
 </head>
@@ -43,45 +92,136 @@
 
   <video class="bg-video" autoplay muted loop playsinline>
     <source src="bgvid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
 
   <div class="overlay"></div>
 
   <div class="content">
-    
-     <h1>Welcome to Ashbourne's Vocabulary Game Hub</h1>
-  <p>These games are organised by alphabet and level of difficulty ('Easy' or 'Hard')</p> 
-<p>Please choose where you’d like to go:</p>
-      <a href="https://ashbournequiz.github.io/Vocabulary-Game/">'A' - EASY</a>
-  <a href="https://ashbournequiz.github.io/Hangman-A/">'A' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Mcq-B/">'B' - EASY</a>
-<a href="https://ashbournequiz.github.io/Memory-B/">'B' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-C/">'C' - EASY</a>
-<a href="https://ashbournequiz.github.io/MatchingGame-C/">'C' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-D/">'D' - EASY</a>
-<a href="https://ashbournequiz.github.io/MatchingPairs-D/">'D' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Search-E/">'E' - EASY</a>
-<a href="https://ashbournequiz.github.io/Hangman-E/">'E' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Search-F/">'F' - EASY</a>
-<a href="https://ashbournequiz.github.io/SpeedQuiz-F/">'F' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Mcq-G-H/">'G and H' - EASY</a>
-<a href="https://ashbournequiz.github.io/Memory-GandH/">'G and H' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-I-J/">'I and J' - EASY</a>
-<a href="https://ashbournequiz.github.io/Matching-I-J/">'I and J' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-L-M/">'L and M' - EASY</a>
-<a href="https://ashbournequiz.github.io/SpeedQuiz-L-M/">'L and M' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Seach-N-O/">'N and O' - EASY</a>
-<a href="https://ashbournequiz.github.io/MemoryNandO/">'N and O' - HARD</a>
-  <a href="https://ashbournequiz.github.io/PuzzleP/">'P' - EASY</a>
-<a href="https://ashbournequiz.github.io/Hangman-P/">'P' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-R/">'Q and R' - EASY</a>
-<a href="https://ashbournequiz.github.io/Matching-Q-R/">'Q and R' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Flashcard-S/">'S' - EASY</a>
-<a href="https://ashbournequiz.github.io/SpeedQuiz-S/">'S' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Search-T/">'T' - EASY</a>
-<a href="https://ashbournequiz.github.io/Memory-T/">'T' - HARD</a>
-  <a href="https://ashbournequiz.github.io/Mcq-U-V-W/">'U, V and W' - EASY</a>
-<a href="https://ashbournequiz.github.io/Hangman-UVW/">'U, V and W' - HARD</a>
+
+    <h1>Welcome to Ashbourne's Vocabulary Game Hub</h1>
+    <p>These games are organised by alphabet and level of difficulty.</p>
+    <p>Please choose where you’d like to go:</p>
+
+    <div class="letter-group">
+      <div class="letter-title">A</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Vocabulary-Game/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Hangman-A/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">B</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Mcq-B/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Memory-B/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">C</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-C/">Easy</a>
+        <a href="https://ashbournequiz.github.io/MatchingGame-C/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">D</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-D/">Easy</a>
+        <a href="https://ashbournequiz.github.io/MatchingPairs-D/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">E</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Search-E/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Hangman-E/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">F</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Search-F/">Easy</a>
+        <a href="https://ashbournequiz.github.io/SpeedQuiz-F/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">G &amp; H</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Mcq-G-H/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Memory-GandH/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">I &amp; J</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-I-J/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Matching-I-J/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">L &amp; M</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-L-M/">Easy</a>
+        <a href="https://ashbournequiz.github.io/SpeedQuiz-L-M/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">N &amp; O</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Search-N-O/">Easy</a>
+        <a href="https://ashbournequiz.github.io/MemoryNandO/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">P</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/PuzzleP/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Hangman-P/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">Q &amp; R</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-R/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Matching-Q-R/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">S</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Flashcard-S/">Easy</a>
+        <a href="https://ashbournequiz.github.io/SpeedQuiz-S/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">T</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Search-T/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Memory-T/">Hard</a>
+      </div>
+    </div>
+
+    <div class="letter-group">
+      <div class="letter-title">U, V &amp; W</div>
+      <div class="links">
+        <a href="https://ashbournequiz.github.io/Mcq-U-V-W/">Easy</a>
+        <a href="https://ashbournequiz.github.io/Hangman-UVW/">Hard</a>
+      </div>
+    </div>
 
   </div>
 
